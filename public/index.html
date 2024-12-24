@@ -191,7 +191,7 @@
       };
   
       // Send the data to the server via fetch
-      fetch('http://localhost:5010/submit', {
+      fetch('http://localhost:5012/submit', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -200,11 +200,15 @@
       })
       .then(response => response.json())
       .then(data => {
-          console.log(data); // Log the response from the server
+          console.log(data);
+          //ALERT
+          alert("Signup successful!");
           document.getElementById("response-message").innerText = data.message;
+          document.getElementById("signup-form").reset();
       })
       .catch(error => {
           console.error('Error:', error);
+          alert("Signup failed. Please try again.");
       });
   });
   
